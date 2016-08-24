@@ -10,5 +10,7 @@ urlpatterns = [
 #means that after the beginning the url should contain the word post
 #?P<pk>\d+ means that django takes everythingand transfers it into a variable called pk . \d
     url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
+    url(r'^post/new/$', views.post_new, name='post_new'),
+    url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
 
 ]
