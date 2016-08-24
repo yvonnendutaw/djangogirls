@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+
 #the . means current directory
 #used here as the views.py and models.py are in the same directory
 from .models import Post
@@ -14,3 +16,7 @@ def post_list(request):
     #{} this is where we can store things the template will use 
     return render(request, 'blog/post_list.html', {'posts' : posts})
 
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post': post})
